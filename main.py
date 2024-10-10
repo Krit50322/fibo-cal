@@ -1,13 +1,13 @@
-def fibo(num):
-    cach = [0,1]
-    if num <= 1: return num
-    else :
-        x = 1
-        while x > num:
-            
-            x += 1
+def fibo(n, cach={}):
+    if n <= 1 : return(n)
+    if len(cach) > n:
+        return(cach[n])
+    if n in cach:
+        return (cach[n])
+    cach[n] = fibo(n-1, cach) + fibo(n-2, cach)
+    return(cach[n])
 
 #main
 while True:
-    x = int(input("enter number u wanna find fibo ans : "))
-    print(fibo(x))
+    x = int(input("enter number here : "))
+    print(fibo(x,{}))
